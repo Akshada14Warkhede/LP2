@@ -1,0 +1,20 @@
+class HelpDeskExpertSystem:
+    def __init__(self):
+        self.queries = {
+            'printer': "Please try the following steps:\n1. Check if the printer is turned on.\n2. Make sure there is paper in the tray.\n3. Restart the printer and try printing again.",
+            'internet': "Please try the following steps:\n1. Check if the Ethernet cable is properly connected.\n2. Restart your router or modem.\n3. Contact your internet service provider if the issue persists.",
+            'password': "If you forgot your password, please reset it using the 'Forgot Password' option on the login page."
+        }
+
+    def get_solution(self, query):
+        return self.queries.get(query.lower(), "I'm sorry, I don't have a solution for that issue.")
+
+# Example usage:
+expert_system = HelpDeskExpertSystem()
+while True:
+    user_query = input("What seems to be the problem? (printer/internet/password): ")
+    solution = expert_system.get_solution(user_query)
+    print("Solution:", solution)
+    continue_option = input("Do you want to continue? (yes/no): ")
+    if continue_option.lower() != 'yes':
+        break
